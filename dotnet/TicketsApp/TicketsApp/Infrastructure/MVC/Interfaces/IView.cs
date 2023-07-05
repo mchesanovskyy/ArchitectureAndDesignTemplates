@@ -1,4 +1,4 @@
-﻿namespace TicketsApp.Infrastructure.Interfaces;
+﻿namespace TicketsApp.Infrastructure.MVC.Interfaces;
 
 public interface IView
 {

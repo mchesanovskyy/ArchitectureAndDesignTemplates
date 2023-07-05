@@ -1,33 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TicketsApp.Core.Entities;
+using TicketsApp.Core.Interfaces;
 
 namespace TicketsApp.Core
 {
-    public class TicketManager
+    public class TicketManager : ITicketManager
     {
-        private List<Ticket> _ticketList;
+        private readonly ITicketRepository _ticketRepository;
 
-        public TicketManager()
+        public TicketManager(ITicketRepository ticketRepository)
         {
-            _ticketList = new List<Ticket>();
+            _ticketRepository = ticketRepository;
         }
 
         public Ticket CreateTicket(string name, decimal amount, int qty)
         {
-            var id = _ticketList.Any() ? _ticketList.Max(x => x.Id) + 1 : 100;
-
-            var ticket = new Ticket()
+            var ticket = new Ticket
             {
-                Id = id,
                 Name = name,
                 Amount = amount,
                 Qty = qty,
             };
-            _ticketList.Add(ticket);
-            return ticket;
+
+            return _ticketRepository.Add(ticket);
         }
     }
 }

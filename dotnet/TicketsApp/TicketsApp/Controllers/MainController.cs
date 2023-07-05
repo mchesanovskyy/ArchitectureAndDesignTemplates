@@ -1,4 +1,4 @@
-﻿using TicketsApp.Infrastructure.Interfaces;
+﻿using TicketsApp.Infrastructure.MVC.Interfaces;
 using TicketsApp.Views.Main;
 
 namespace TicketsApp.Controllers

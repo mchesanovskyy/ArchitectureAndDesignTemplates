@@ -1,5 +1,5 @@
-﻿using TicketsApp.Core;
-using TicketsApp.Infrastructure.Interfaces;
+﻿using TicketsApp.Core.Interfaces;
+using TicketsApp.Infrastructure.MVC.Interfaces;
 using TicketsApp.Models;
 using TicketsApp.Views.Tickets;
 
@@ -7,7 +7,12 @@ namespace TicketsApp.Controllers;
 
 public class TicketsController : IController
 {
-    private readonly TicketManager _ticketManager = new TicketManager();
+    private readonly ITicketManager _ticketManager;
+
+    public TicketsController(ITicketManager ticketManager)
+    {
+        _ticketManager = ticketManager;
+    }
 
     public IView GetMenuView()
     {
@@ -21,7 +26,7 @@ public class TicketsController : IController
 
     public IView CreateTicket(IViewModel model)
     {
-        var ticketModel = (CreateTicketModelIn)model;
+        var ticketModel = (CreateTicketModel)model;
         var ticket = _ticketManager.CreateTicket(ticketModel.Name, ticketModel.Amount, ticketModel.Qty);
         return new DisplayTicketView(ticket);
     }

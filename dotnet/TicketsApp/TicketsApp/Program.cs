@@ -1,9 +1,10 @@
 ﻿using TicketsApp.Infrastructure;
-using TicketsApp.Infrastructure.Router;
-using TicketsApp.Infrastructure.Routes;
+using TicketsApp.Infrastructure.MVC;
+using TicketsApp.Infrastructure.MVC.Helpers;
+using TicketsApp.Infrastructure.MVC.Routes;
 
-var controllersUoW = new ControllerUnitOfWork();
-var router = new Router(controllersUoW);
+
+var router = DependencyHelper.ResolveRouter();
 var request = new RequestContext(ViewName.MainMenu);
 
 while (true)

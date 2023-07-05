@@ -1,6 +1,6 @@
-﻿using TicketsApp.Infrastructure;
-using TicketsApp.Infrastructure.Interfaces;
-using TicketsApp.Infrastructure.Router;
+﻿using TicketsApp.Infrastructure.MVC;
+using TicketsApp.Infrastructure.MVC.Interfaces;
+using TicketsApp.Infrastructure.MVC.Routes;
 
 namespace TicketsApp.Views.Tickets;
 

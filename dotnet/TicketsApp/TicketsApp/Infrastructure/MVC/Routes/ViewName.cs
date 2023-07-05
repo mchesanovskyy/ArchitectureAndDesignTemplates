@@ -1,4 +1,4 @@
-﻿namespace TicketsApp.Infrastructure.Router;
+﻿namespace TicketsApp.Infrastructure.MVC.Routes;
 
 public enum ViewName
 {

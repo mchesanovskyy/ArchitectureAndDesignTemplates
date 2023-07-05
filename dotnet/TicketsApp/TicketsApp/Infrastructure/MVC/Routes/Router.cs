@@ -1,7 +1,6 @@
-﻿using TicketsApp.Infrastructure.Interfaces;
-using TicketsApp.Infrastructure.Router;
+﻿using TicketsApp.Infrastructure.MVC.Interfaces;
 
-namespace TicketsApp.Infrastructure.Routes;
+namespace TicketsApp.Infrastructure.MVC.Routes;
 
 public class Router
 {

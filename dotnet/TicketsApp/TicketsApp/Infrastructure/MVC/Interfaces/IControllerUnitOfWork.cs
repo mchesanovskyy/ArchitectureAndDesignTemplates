@@ -1,6 +1,6 @@
 ﻿using TicketsApp.Controllers;
 
-namespace TicketsApp.Infrastructure.Interfaces;
+namespace TicketsApp.Infrastructure.MVC.Interfaces;
 
 public interface IControllerUnitOfWork
 {
