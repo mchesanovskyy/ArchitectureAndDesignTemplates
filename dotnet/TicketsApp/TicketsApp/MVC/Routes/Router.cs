@@ -1,33 +1,22 @@
-﻿using TicketsApp.Infrastructure.Extensions;
+﻿using System.Collections.Generic;
+using TicketsApp.Infrastructure.Extensions;
 using TicketsApp.MVC.Interfaces;
+using TicketsApp.MVC.Views.Main;
 
 namespace TicketsApp.MVC.Routes;
 
 public class Router
 {
-    private readonly IControllerUnitOfWork _controllerUnitOfWork;
-    public Router(IControllerUnitOfWork controllerUnitOfWork)
+    private readonly IReadOnlyCollection<Route> _routes;
+    public Router(IReadOnlyCollection<Route> routes)
     {
-        _controllerUnitOfWork = controllerUnitOfWork;
+        _routes = routes;
     }
 
     public IView RouteTo(RequestContext context)
     {
-        switch (context.ViewName)
-        {
-            case ViewName.MainMenu:
-                return _controllerUnitOfWork.MainController.GetMainMenuView();
-            case ViewName.TicketsMenu:
-                return _controllerUnitOfWork.TicketsController.GetMenuView();
-            case ViewName.GetCreateTicketView:
-                return _controllerUnitOfWork.TicketsController.GetCreateTicketView();
-            case ViewName.CreateTicket:
-                return _controllerUnitOfWork.TicketsController.CreateTicket(context.Model);
-            case ViewName.GetTicket:
-                return _controllerUnitOfWork.TicketsController.GetTicket(context.Model);
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-
+        var route = _routes.FirstOrDefault(r => r.ViewName == context.ViewName);
+        return route?.GetControllerActionFunc(context)
+               ?? new ErrorView("Can't find view");
     }
 }

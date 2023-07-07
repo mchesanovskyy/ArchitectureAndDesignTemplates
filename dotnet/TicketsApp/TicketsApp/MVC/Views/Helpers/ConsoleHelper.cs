@@ -1,10 +1,18 @@
-﻿using TicketsApp.Infrastructure.Extensions;
+﻿using System.Xml.Serialization;
+using TicketsApp.Infrastructure.Extensions;
 using TicketsApp.Infrastructure.Validation;
 
 namespace TicketsApp.MVC.Views.Helpers;
 
 public static class ConsoleHelper
 {
+    public static void WaitForConfirmation(string message = "Press any key for continue")
+    {
+        Console.WriteLine();
+        Console.WriteLine(message);
+        Console.ReadKey();
+    }
+
     public static string ReadParameter(string question)
     {
         Console.Write(question);
