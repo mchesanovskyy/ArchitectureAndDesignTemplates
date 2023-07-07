@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TicketsApp.Core.Entities
+﻿namespace TicketsApp.Core.Entities
 {
     public class Ticket
     {

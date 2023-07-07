@@ -24,6 +24,16 @@ public class TicketRepository : ITicketRepository
         return ticket;
     }
 
+    public ICollection<Ticket> GetCollection()
+    {
+        return FileData.Records;
+    }
+
+    public Ticket? GetById(int id)
+    {
+        return FileData.Records.FirstOrDefault(r => r.Id == id);
+    }
+
     private void SaveChanges()
     {
         File.WriteAllText(FileName, FileData.ToJsonString());

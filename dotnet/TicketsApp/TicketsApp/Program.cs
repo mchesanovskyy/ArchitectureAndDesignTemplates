@@ -1,8 +1,6 @@
-﻿using TicketsApp.Infrastructure;
-using TicketsApp.Infrastructure.MVC;
-using TicketsApp.Infrastructure.MVC.Helpers;
-using TicketsApp.Infrastructure.MVC.Routes;
-
+﻿using TicketsApp.MVC;
+using TicketsApp.MVC.Helpers;
+using TicketsApp.MVC.Routes;
 
 var router = DependencyHelper.ResolveRouter();
 var request = new RequestContext(ViewName.MainMenu);

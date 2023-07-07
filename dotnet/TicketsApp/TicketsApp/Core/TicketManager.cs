@@ -23,5 +23,14 @@ namespace TicketsApp.Core
 
             return _ticketRepository.Add(ticket);
         }
+
+        public ICollection<Ticket> GetTickets() 
+            => _ticketRepository.GetCollection();
+
+        public Ticket GetById(int id)
+        {
+            return _ticketRepository.GetById(id)
+                ?? throw new Exception("Can't find ticket");
+        }
     }
 }
